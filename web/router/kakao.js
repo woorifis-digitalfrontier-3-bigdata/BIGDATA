@@ -1,6 +1,7 @@
 var express = require('express');
 var router = express.Router();
 const request = require('request');
+const querystring = require('querystring');
 const {logger} = require('../config/winston');
 const dotenv = require('dotenv');
 dotenv.config(); // LOAD CONFIG
@@ -18,24 +19,26 @@ router.get('/about', function(req, res) {
 });
 
 let kakaoOptions = {
-    url: 'https://dapi.kakao.com/v3/search/book?target=title',  // target에 해당하는 것을 적기
+    url: 'https://dapi.kakao.com/v3/search/book?target=title', 
     method: 'GET',
     headers: {
       'Authorization': `KakaoAK ${process.env.RESTAPI_KEY}`
     },
     qs: {
-      query : '미움받을용기'     // 현재 책으로 검색할 것이라 책 제목을 적었다.
+      query : '테스트'     
     },
     encoding: 'UTF-8',
   }
 
 router.get('/news', (req, res)=> { //람다식
-
-   request.get(kakaoOptions, (error, response, body)=> { //function이 =>로 해결되네
+  console.log(req.query)
+  kakaoOptions.qs.query=req.query.q
+  console.log(kakaoOptions)
+   request.get(kakaoOptions, (error, response, body)=> {
      if (!error && response.statusCode == 200) {
-       let newsItems = JSON.parse(body).items; //items - title, link, description, pubDate
+       let newsItems = JSON.parse(body).items; 
         logger.info(`example kakao`);
-        logger.debug(`example kakao`);
+        logger.debug(`example kakao ${req.query.q} ${response.statusCode}`);
         res.writeHead(200, {'Content-Type': 'text/json;charset=utf-8'});
         res.end(body);
     

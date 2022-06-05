@@ -1,0 +1,24 @@
+# node.js 설치(port 3000)
+
+curl -sL https://deb.nodesource.com/setup_14.x | sudo -E bash -
+sudo apt-get install -y nodejs
+node -v
+
+sudo mkdir bigdata
+sudo chown -R ubuntu:ubuntu bigdata
+
+.env 파일 등록
+
+cd BigData_pilot/web
+npm install
+npm start 혹은 pm2 start app.js
+
+
+
+# 파이썬 스케줄러 실행
+python3 main.py
+
+
+# logstash(port 5601)
+jdk 설치 -> https://eodevelop.tistory.com/42
+bin/logstash -f ./bin/test.conf
