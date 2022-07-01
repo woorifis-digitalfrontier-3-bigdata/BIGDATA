@@ -17,7 +17,7 @@ def run_query(query):
         cur.execute(query)
         return cur.fetchall()
 
-rows = run_query("SELECT * from account;")
+rows = run_query("SELECT * from mytable;")
 
 # Print results.
 for row in rows:
