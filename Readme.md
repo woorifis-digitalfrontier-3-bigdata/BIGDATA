@@ -1,8 +1,11 @@
 ## 1. 기본 flow
 
+[파이프라인]
 - streaming data(대기현황) csv - logstash - kafka - MySQL
-                                                           -> Node.js(Express)+streamlit+superset
 - batch data(상권정보 등)  csv - airflow(일 배치)  - MySQL 
+
+[시각화]
+Node.js(Express)+streamlit+superset
 
 ## 2. EC2 Instacne
 BD02_airflow(csv파일, 
