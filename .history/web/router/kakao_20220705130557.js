@@ -12,14 +12,7 @@ router.use(function(req, res, next) {
 
 router.get("/", function(req, res){
   const a = 'example'
-  res.render( 'home.html', { title: 'Express' });
-});
-
-router.get("/2", function(req, res){
-  //console.log(req.query)
-  const val=req.query
-  console.log(val)
-  res.render( 'home2.html', { val });
+  res.render( 'template/home.html', { title: 'Express' });
 });
 
 router.get('/about', function(req, res) {

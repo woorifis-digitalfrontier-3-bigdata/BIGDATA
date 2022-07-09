@@ -15,13 +15,6 @@ router.get("/", function(req, res){
   res.render( 'home.html', { title: 'Express' });
 });
 
-router.get("/2", function(req, res){
-  //console.log(req.query)
-  const val=req.query
-  console.log(val)
-  res.render( 'home2.html', { val });
-});
-
 router.get('/about', function(req, res) {
   res.send('hi2');
 });

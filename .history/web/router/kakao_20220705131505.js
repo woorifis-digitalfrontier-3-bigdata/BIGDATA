@@ -17,9 +17,9 @@ router.get("/", function(req, res){
 
 router.get("/2", function(req, res){
   //console.log(req.query)
-  const val=req.query
-  console.log(val)
-  res.render( 'home2.html', { val });
+  const val=req.query.q
+  console.log(val.title)
+  //res.render( 'home2.html', { val });
 });
 
 router.get('/about', function(req, res) {

@@ -12,7 +12,7 @@ app.use(compression());
 app.use(express.json());
 
 app.set('view engine', 'njk'); // 확장자를 html 로도 사용이 가능함.
-nunjucks.configure('template', { // views폴더가 넌적스파일의 위치가 됨
+nunjucks.configure('views', { // views폴더가 넌적스파일의 위치가 됨
   express: app,
   watch: true,
 });

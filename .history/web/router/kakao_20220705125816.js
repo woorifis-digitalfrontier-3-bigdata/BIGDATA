@@ -10,16 +10,8 @@ router.use(function(req, res, next) {
   next();
 });
 
-router.get("/", function(req, res){
-  const a = 'example'
-  res.render( 'home.html', { title: 'Express' });
-});
-
-router.get("/2", function(req, res){
-  //console.log(req.query)
-  const val=req.query
-  console.log(val)
-  res.render( 'home2.html', { val });
+app.get("/", function(req, res){
+  res.render( 'home.html');
 });
 
 router.get('/about', function(req, res) {
