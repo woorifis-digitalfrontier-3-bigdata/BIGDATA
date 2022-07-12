@@ -1,4 +1,5 @@
 import streamlit as st
+import pandas as pd
 import mysql.connector
 
 # Initialize connection.
@@ -17,8 +18,7 @@ def run_query(query):
         cur.execute(query)
         return cur.fetchall()
 
-rows = run_query("SELECT * from mytable;")
+rows = run_query("SELECT gu_name, wooribank from monitoring;")
 
 # Print results.
-for row in rows:
-    st.write(f"{row[0]} has a :{row[1]}:")
+st.line_chart(rows)
