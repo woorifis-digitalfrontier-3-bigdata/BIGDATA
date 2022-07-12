@@ -18,7 +18,7 @@ def run_query(query):
         cur.execute(query)
         return cur.fetchall()
 
-rows = run_query("SELECT gu_name, wooribank from monitoring;")
+rows = run_query("SELECT gu_name, wooribank_cnt from monitoring;")
 
 # Print results.
 st.line_chart(rows)
