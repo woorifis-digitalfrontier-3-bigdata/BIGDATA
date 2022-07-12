@@ -4,13 +4,17 @@
 - streaming data(대기현황) csv - logstash - kafka - MySQL
 - batch data(상권정보 등)  csv - airflow(일 배치)  - MySQL 
 
+![image](https://user-images.githubusercontent.com/59672222/178421419-eb046258-3911-4903-ab4e-901bf7f95d46.png)
+
+
 [시각화]
 Node.js(Express)+streamlit+superset
 
 ## 2. EC2 Instacne
-BD02_airflow(csv파일, 
-BD02_DB(kafka, MySQL)
-BD02_superset(node.js, streamlit, superset)
+- BD02_streaming(data_generator,logstash,kafka)
+- BD02_airflow
+- BD02_DB(MySQL) 
+- BD02_superset(node.js, streamlit, superset)
 
 
 ## 3. 링크
