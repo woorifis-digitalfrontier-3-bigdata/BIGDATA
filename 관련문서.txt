@@ -1,31 +1,43 @@
-# 해야할 것 -> 고정IP 추가
+# BD02_airflow(스케쥴러는 인스턴스 꺼지면 죽어서 켜줘야함)
+airflow scheduler
+
+-------------------------------------------------
+
+# BD02_streaming
+
+[zookeeper실행]
+
+Background 실행
+> bin/zookeeper-server-start.sh -daemon config/zookeeper.properties
+> ps -ef | grep zookeeper
+
+background 실행
+bin/kafka-server-start.sh -daemon config/server.properties
+
+현재 topic명 realtime
 
 
-# node.js 설치(port 3000)
-
-curl -sL https://deb.nodesource.com/setup_14.x | sudo -E bash -
-sudo apt-get install -y nodejs
-node -v
-
-sudo mkdir bigdata
-sudo chown -R ubuntu:ubuntu bigdata
-
-.env 파일 등록
-
-cd BigData_pilot/web
-npm install
-npm start 혹은 pm2 start app.js
 
 
 
-# 파이썬 스케줄러 실행
-python3 main.py
+[broker 실행]
+
+(logstash 실행 - 현재 하나 파이프라인만 운영 가능)
+ ./logstash-7.10.2/bin/logstash -f csv_to_kafka.conf
+
+혹시 이미 인스턴스가 켜져있으면 
+ps -ef | grep 'logstash' 해서 pid kill 한다음에
+새로운 conf실행
 
 
-# logstash(port 5601)
-jdk 설치 -> https://eodevelop.tistory.com/42
-bin/logstash -f ./bin/test.conf
 
-# 참고
-http://3.36.128.81:3000/search_kakao/news?q=은행
-이런식으로 쿼리 날릴 때마다 logstash에서 log 확인 가능
+[기동 순서]
+# 카프카 주키퍼, 브로커 실행
+bin/zookeeper-server-start.sh -daemon config/zookeeper.properties
+bin/kafka-server-start.sh -daemon config/server.properties
+
+# logstash 실행
+ ./logstash-7.10.2/bin/logstash -f csv_to_kafka.conf
+
+# data generator실행
+python3 data_generator.py
