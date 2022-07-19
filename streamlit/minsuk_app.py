@@ -31,10 +31,12 @@ col1.metric("강남구 영업점 수", "47개", "4개")
 col2.metric("총 인구 수", "11,000명", "-1,000명")
 col3.metric("종합점수", "86점", "5")
 
-from PIL import Image
-IMAGE_URL = "http://18.237.28.176:8088/superset/explore/p/Qj5y6WJVvqX/?standalone=1&height=400"
+import streamlit.components.v1 as components
 
-st.image(IMAGE_URL, caption="슈퍼셋", use_column_width='auto', output_format='auto')
+# embed streamlit docs in a streamlit app
+components.iframe("http://18.237.28.176:8088/superset/explore/p/Qj5y6WJVvqX/?standalone=1&height=400", width=500, height=500, scrolling=True)
+
+
 
 st.markdown("### Detailed Data View")
 st.dataframe(df)
