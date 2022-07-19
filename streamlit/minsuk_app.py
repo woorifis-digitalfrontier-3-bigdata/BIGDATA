@@ -32,7 +32,7 @@ col2.metric("총 인구 수", "11,000명", "-1,000명")
 col3.metric("종합점수", "86점", "5")
 
 from PIL import Image
-IMAGE_URL = "http://34.210.157.12:8088/superset/explore/p/zaXlQGBWGqJ/?standalone=1&height=400"
+IMAGE_URL = "http://18.237.28.176:8088/superset/explore/p/Qj5y6WJVvqX/?standalone=1&height=400"
 
 st.image(IMAGE_URL, caption="슈퍼셋", use_column_width='auto', output_format='auto')
 
