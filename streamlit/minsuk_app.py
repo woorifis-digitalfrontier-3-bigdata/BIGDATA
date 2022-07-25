@@ -55,6 +55,7 @@ import folium
 #     tooltip="Liberty Bell"
 # ).add_to(m)
 
+## 지도--------------------------------------------------
 m = folium.Map(
     location=[37.559819, 126.963895],
     zoom_start=11, 
@@ -65,6 +66,46 @@ folium.GeoJson(
     seoul_geo,
     name='지역구'
 ).add_to(m)
+
+from pandas import Series, DataFrame
+
+folium_data = {'강남구': [33],
+            '강동구': [44],
+            '강북구': [43],
+            '강서구': [35],
+            
+            '관악구': [54],
+            '광진구': [34],
+            '구로구': [34],
+            
+            '동작구': [34],
+            '마포구': [55],
+            '서대문구': [44],
+            '동대문구': [33],
+            '서초구': [34],
+            '성동구': [35],
+            
+            '성북구': [45],
+            '송파구': [65],
+            '용산구': [44],
+            '양천구': [33],
+            '영등포구': [45],
+            
+            '은평구': [34],
+            '종로구': [45],
+            '중구': [55],
+            '중랑구': [8],
+           }
+
+folium_data = DataFrame(raw_data)
+m.choropleth(geo_data=seoul_geo,
+             data=folium_data, 
+             fill_color='YlOrRd', # 색상 변경도 가능하다
+             fill_opacity=0.5,
+             line_opacity=0.2,
+             key_on='properties.name',
+             legend_name="지역구별 대기현황 인원 수"
+            )
 
 # call to render Folium map in Streamlit
 st_data = st_folium(m, width = 1300)
