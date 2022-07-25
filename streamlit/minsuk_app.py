@@ -1,7 +1,7 @@
 import mysql.connector as msql
 import pandas as pd
 import time  # to simulate a real time data, time loop
-from folium.plugins import MarkerCluster
+from streamlit_folium import st_folium
 import folium
 import numpy as np  # np mean, np random
 import pandas as pd  # read csv, df manipulation
@@ -16,16 +16,16 @@ r = requests.get('https://raw.githubusercontent.com/southkorea/seoul-maps/master
 c = r.content
 seoul_geo = json.loads(c)
 
-m = folium.Map(
-    location=[37.559819, 126.963895],
-    zoom_start=11, 
-    tiles='cartodbpositron'
-)
+# m = folium.Map(
+#     location=[37.559819, 126.963895],
+#     zoom_start=11, 
+#     tiles='cartodbpositron'
+# )
 
-folium.GeoJson(
-    seoul_geo,
-    name='지역구'
-).add_to(m)
+# folium.GeoJson(
+#     seoul_geo,
+#     name='지역구'
+# ).add_to(m)
 
 
 
@@ -43,7 +43,20 @@ col1.metric("강남구 영업점 수", "47개", "4개")
 col2.metric("총 인구 수", "11,000명", "-1,000명")
 col3.metric("종합점수", "86점", "5")
 
-m
+import streamlit as st
+from streamlit_folium import st_folium
+import folium
+
+# center on Liberty Bell, add marker
+m = folium.Map(location=[39.949610, -75.150282], zoom_start=16)
+folium.Marker(
+    [39.949610, -75.150282], 
+    popup="Liberty Bell", 
+    tooltip="Liberty Bell"
+).add_to(m)
+
+# call to render Folium map in Streamlit
+st_data = st_folium(m, width = 725)
 
 conn = msql.connect(host='52.36.29.255', database='pets', user='bigdata',  
     password='1111')
