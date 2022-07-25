@@ -81,7 +81,7 @@ result2 = cursor.fetchall()
 
 df2=pd.DataFrame(result2)
 
-job_filter = st.select("Select the gu", pd.unique(df2[0]))
+job_filter = st.selectbox("지역을 선택하세요", pd.unique(df2[0]))
 
 df2 = df2[df2[0] == job_filter]
 print(df2)
