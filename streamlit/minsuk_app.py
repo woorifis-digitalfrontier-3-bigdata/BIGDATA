@@ -69,7 +69,7 @@ folium.GeoJson(
 
 folium.Marker(
   location=[37.5838699,127.0565831],
-  popup="<a href=http://35.88.197.65:8088/superset/dashboard/p/mdZK1LrRA2w/>Place Guillaume II</a>",
+  popup="<a href=https://fr.wikipedia.org/wiki/Place_Guillaume_II>Place Guillaume II</a>",
   icon=folium.Icon(color='red',icon='star')
 ).add_to(m)
 
