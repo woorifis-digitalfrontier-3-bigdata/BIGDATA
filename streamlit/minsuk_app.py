@@ -1,21 +1,33 @@
 import mysql.connector as msql
 import pandas as pd
 import time  # to simulate a real time data, time loop
-
+from folium.plugins import MarkerCluster
+import folium
 import numpy as np  # np mean, np random
 import pandas as pd  # read csv, df manipulation
 import streamlit as st  # 🎈 data web app development
 
-conn = msql.connect(host='52.36.29.255', database='pets', user='bigdata',  
-    password='1111')
 
-cursor = conn.cursor()
-sql = "SELECT * from personal_company"
-cursor.execute(sql)
+import requests
+import json
 
-result = cursor.fetchall()
+# 서울 행정구역 json raw파일(githubcontent)
+r = requests.get('https://raw.githubusercontent.com/southkorea/seoul-maps/master/kostat/2013/json/seoul_municipalities_geo_simple.json')
+c = r.content
+seoul_geo = json.loads(c)
 
-df=pd.DataFrame(result)
+m = folium.Map(
+    location=[37.559819, 126.963895],
+    zoom_start=11, 
+    tiles='cartodbpositron'
+)
+
+folium.GeoJson(
+    seoul_geo,
+    name='지역구'
+).add_to(m)
+
+
 
 st.set_page_config(
     page_title="Real-Time Data",
@@ -31,11 +43,33 @@ col1.metric("강남구 영업점 수", "47개", "4개")
 col2.metric("총 인구 수", "11,000명", "-1,000명")
 col3.metric("종합점수", "86점", "5")
 
-import streamlit.components.v1 as components
+m
 
-# embed streamlit docs in a streamlit app
-components.iframe("http://18.237.28.176:8088/superset/explore/p/Qj5y6WJVvqX/?standalone=1&height=400", width=500, height=500, scrolling=True)
+conn = msql.connect(host='52.36.29.255', database='pets', user='bigdata',  
+    password='1111')
 
+cursor = conn.cursor()
+
+sql2 = "SELECT * from streamlit_day"
+cursor.execute(sql2)
+
+result2 = cursor.fetchall()
+
+df2=pd.DataFrame(result2)
+
+job_filter = st.selectbox("Select the gu", pd.unique(df2[0]))
+
+df2 = df2[df2[0] == job_filter]
+print(df2)
+#---------------------------------
+
+
+sql = "SELECT * from personal_company"
+cursor.execute(sql)
+
+result = cursor.fetchall()
+
+df=pd.DataFrame(result)
 
 
 st.markdown("### Detailed Data View")
