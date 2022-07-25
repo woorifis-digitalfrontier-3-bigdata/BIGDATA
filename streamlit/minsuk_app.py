@@ -81,7 +81,9 @@ result2 = cursor.fetchall()
 
 df2=pd.DataFrame(result2)
 
-job_filter = st.select("Select the gu", pd.unique(df2[0]))
+job_filter = st.select("Select gu_name from gu", ["강남구"])
+
+#job_filter = st.select("Select the gu", pd.unique(df2[0]))
 
 df2 = df2[df2[0] == job_filter]
 print(df2)
