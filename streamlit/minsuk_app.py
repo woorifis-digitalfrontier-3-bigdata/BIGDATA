@@ -69,21 +69,21 @@ folium.GeoJson(
 
 
 folium.Marker(
-  location=[127.05867359288398,37.52629974922568],
+  location=[37.52629974922568,127.05867359288398],
   #popup="<a href=http://35.88.197.65:8088/superset/dashboard/p/mdZK1LrRA2w/>Place Guillaume II</a>",
   popup='<a href="http://35.88.197.65:8088/superset/dashboard/p/mdZK1LrRA2w/" target="_blank">강남구</a>',
   icon=folium.Icon(color='red',icon='star')
 ).add_to(m)
 
 folium.Marker(
-  location=[126.89184663862764,37.547373974997114],
+  location=[37.547373974997114,126.89184663862764],
   #popup="<a href=http://35.88.197.65:8088/superset/dashboard/p/mdZK1LrRA2w/>Place Guillaume II</a>",
   popup='<a href="http://35.88.197.65:8088/superset/dashboard/p/mdZK1LrRA2w/" target="_blank">영등포구</a>',
   icon=folium.Icon(color='red',icon='star')
 ).add_to(m)
 
 folium.Marker(
-  location=[126.98367668291802,37.473856492692086],
+  location=[37.473856492692086,126.98367668291802],
   #popup="<a href=http://35.88.197.65:8088/superset/dashboard/p/mdZK1LrRA2w/>Place Guillaume II</a>",
   popup='<a href="http://35.88.197.65:8088/superset/dashboard/p/mdZK1LrRA2w/" target="_blank">관악구</a>',
   icon=folium.Icon(color='red',icon='star')
