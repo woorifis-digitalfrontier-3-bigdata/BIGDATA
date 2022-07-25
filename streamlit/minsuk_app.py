@@ -10,6 +10,8 @@ import streamlit as st  # 🎈 data web app development
 
 import requests
 import json
+from streamlit_autorefresh import st_autorefresh
+count = st_autorefresh(interval=1000, limit=100, key="fizzbuzzcounter")
 
 # 서울 행정구역 json raw파일(githubcontent)
 r = requests.get('https://raw.githubusercontent.com/southkorea/seoul-maps/master/kostat/2013/json/seoul_municipalities_geo_simple.json')
