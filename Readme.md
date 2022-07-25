@@ -16,6 +16,7 @@ Node.js(Express)+streamlit+superset
 - BD02_DB(MySQL) 
 - BD02_superset(node.js, streamlit, superset)
 
+![화면 캡처 2022-07-25 185153](https://user-images.githubusercontent.com/59672222/180750044-7bf3d7dd-3b8b-474b-b15a-5131928960b2.png)
 
 ## 3. 링크
 
