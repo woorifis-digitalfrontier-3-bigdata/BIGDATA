@@ -38,6 +38,18 @@ seoul_geo = json.loads(c)
 
 job_filter = st.selectbox("지역을 선택하세요", pd.unique(df2[0]))
 
+conn = msql.connect(host='52.36.29.255', database='pets', user='bigdata',  
+    password='1111')
+
+cursor = conn.cursor()
+
+sql2 = "SELECT * from streamlit_day"
+cursor.execute(sql2)
+
+result2 = cursor.fetchall()
+
+df2=pd.DataFrame(result2)
+
 df2 = df2[df2[0] == job_filter]
 print(df2)
 
@@ -133,17 +145,6 @@ folium_data = pd.DataFrame(folium_data,columns=['구','수'])
 # auto-refresh
 st_data = st_folium(m, width = 1300)
 
-conn = msql.connect(host='52.36.29.255', database='pets', user='bigdata',  
-    password='1111')
-
-cursor = conn.cursor()
-
-sql2 = "SELECT * from streamlit_day"
-cursor.execute(sql2)
-
-result2 = cursor.fetchall()
-
-df2=pd.DataFrame(result2)
 
 #---------------------------------
 
