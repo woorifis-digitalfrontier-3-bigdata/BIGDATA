@@ -61,10 +61,6 @@ df3=pd.DataFrame(result3)
 df3 = df2[df3[0] == job_filter]
 print(df3)
 print(df3[1])
-col1, col2, col3 = st.columns(3)
-col1.metric("강남구 영업점 수", df3[1], "4개")
-col2.metric("총 인구 수", df3[2], "-1,000명")
-col3.metric("종합점수", "86점", "5")
 
 import streamlit as st
 from streamlit_folium import st_folium
