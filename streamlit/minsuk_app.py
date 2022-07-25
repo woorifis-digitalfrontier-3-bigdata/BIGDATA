@@ -67,6 +67,11 @@ folium.GeoJson(
     name='지역구'
 ).add_to(m)
 
+folium.Marker(
+  location=[37.5838699,127.0565831],
+  popup='University of Seoul',
+  icon=folium.Icon(color='red',icon='star')
+).add_to(m)
 
 import pandas as pd
 
