@@ -36,7 +36,6 @@ seoul_geo = json.loads(c)
 #     name='지역구'
 # ).add_to(m)
 
-job_filter = st.selectbox("지역을 선택하세요", pd.unique(df2[0]))
 
 conn = msql.connect(host='52.36.29.255', database='pets', user='bigdata',  
     password='1111')
@@ -51,6 +50,7 @@ result2 = cursor.fetchall()
 df2=pd.DataFrame(result2)
 
 df2 = df2[df2[0] == job_filter]
+job_filter = st.selectbox("지역을 선택하세요", pd.unique(df2[0]))
 print(df2)
 
 sql3 = "SELECT * from streamlit_upper"
