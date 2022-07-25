@@ -3,3 +3,4 @@ streamlit
 mysql-connector-python
 folium
 streamlit_folium
+streamlit_autorefresh 
