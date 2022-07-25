@@ -97,7 +97,7 @@ folium_data = {'강남구': [33],
             '중랑구': [8],
            }
 
-folium_data = DataFrame(raw_data)
+folium_data = DataFrame(folium_data)
 m.choropleth(geo_data=seoul_geo,
              data=folium_data, 
              fill_color='YlOrRd', # 색상 변경도 가능하다
@@ -107,8 +107,8 @@ m.choropleth(geo_data=seoul_geo,
              legend_name="지역구별 대기현황 인원 수"
             )
 
-# call to render Folium map in Streamlit
-st_data = st_folium(m, width = 1300)
+# auto-refresh
+#st_data = st_folium(m, width = 1300)
 
 conn = msql.connect(host='52.36.29.255', database='pets', user='bigdata',  
     password='1111')
@@ -153,20 +153,3 @@ chart_data = pd.DataFrame(
      columns=['강남구', '관악구', '영등포구'])
 
 st.line_chart(chart_data)
-
-
-# import streamlit as st
-# import plotly.figure_factory as ff
-# import numpy as np
-
-
-# hist_data = data[0:3]
-
-# group_labels = ['강남구', '관악구', '영등포구']
-
-# # Create distplot with custom bin_size
-# fig = ff.create_distplot(
-#          hist_data, group_labels, bin_size=[.1, .25, .5])
-
-# # Plot!
-# st.plotly_chart(fig, use_container_width=True)
