@@ -6,7 +6,7 @@ import folium
 import numpy as np  # np mean, np random
 import pandas as pd  # read csv, df manipulation
 import streamlit as st  # 🎈 data web app development
-
+from streamlit_autorefresh import st_autorefresh
 
 import requests
 import json
@@ -18,7 +18,7 @@ st.set_page_config(
 )
 
 st.title("Real-Time / Live Data Science Dashboard")
-
+st_autorefresh(interval=5 * 1000, key="dataframerefresh")
 
 # 서울 행정구역 json raw파일(githubcontent)
 r = requests.get('https://raw.githubusercontent.com/southkorea/seoul-maps/master/kostat/2013/json/seoul_municipalities_geo_simple.json')
