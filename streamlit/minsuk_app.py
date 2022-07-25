@@ -67,7 +67,7 @@ folium.GeoJson(
 ).add_to(m)
 
 # call to render Folium map in Streamlit
-st_data = st_folium(m, width = 1100)
+st_data = st_folium(m, width = 1300)
 
 conn = msql.connect(host='52.36.29.255', database='pets', user='bigdata',  
     password='1111')
