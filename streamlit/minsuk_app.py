@@ -52,6 +52,7 @@ job_filter = st.selectbox("지역을 선택하세요", pd.unique(df2[0]))
 df2 = df2[df2[0] == job_filter]
 #print(df2)
 
+
 sql3 = "SELECT * from streamlit_upper"
 cursor.execute(sql3)
 
@@ -62,17 +63,13 @@ df3 = df2[df3[0] == job_filter]
 print(df3)
 print(df3[1])
 
-import streamlit as st
+col1, col2, col3 = st.columns(3)
+col1.metric("강남구 영업점 수", df3[1], "4개")
+col2.metric("총 인구 수", df3[2], "-1,000명")
+col3.metric("종합점수", "86점", "5")
+
 from streamlit_folium import st_folium
 import folium
-
-# # center on Liberty Bell, add marker
-# m = folium.Map(location=[39.949610, -75.150282], zoom_start=16)
-# folium.Marker(
-#     location=[37.559819, 126.963895], 
-#     popup="Liberty Bell", 
-#     tooltip="Liberty Bell"
-# ).add_to(m)
 
 ## 지도--------------------------------------------------
 m = folium.Map(
