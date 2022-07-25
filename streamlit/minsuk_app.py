@@ -10,8 +10,6 @@ import streamlit as st  # 🎈 data web app development
 
 import requests
 import json
-from streamlit_autorefresh import st_autorefresh
-
 
 st.set_page_config(
     page_title="Real-Time Data",
@@ -116,7 +114,6 @@ chart_data = pd.DataFrame(
 st.line_chart(chart_data)
 
 
-count = st_autorefresh(interval=1000, limit=100, key="fizzbuzzcounter")
 # import streamlit as st
 # import plotly.figure_factory as ff
 # import numpy as np
