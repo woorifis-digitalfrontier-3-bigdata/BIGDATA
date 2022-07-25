@@ -11,7 +11,16 @@ import streamlit as st  # 🎈 data web app development
 import requests
 import json
 from streamlit_autorefresh import st_autorefresh
-count = st_autorefresh(interval=1000, limit=100, key="fizzbuzzcounter")
+
+
+st.set_page_config(
+    page_title="Real-Time Data",
+    page_icon="✅",
+    layout="wide",
+)
+
+st.title("Real-Time / Live Data Science Dashboard")
+
 
 # 서울 행정구역 json raw파일(githubcontent)
 r = requests.get('https://raw.githubusercontent.com/southkorea/seoul-maps/master/kostat/2013/json/seoul_municipalities_geo_simple.json')
@@ -29,15 +38,6 @@ seoul_geo = json.loads(c)
 #     name='지역구'
 # ).add_to(m)
 
-
-
-st.set_page_config(
-    page_title="Real-Time Data",
-    page_icon="✅",
-    layout="wide",
-)
-
-st.title("Real-Time / Live Data Science Dashboard")
 
 
 col1, col2, col3 = st.columns(3)
@@ -115,6 +115,8 @@ chart_data = pd.DataFrame(
 
 st.line_chart(chart_data)
 
+
+count = st_autorefresh(interval=1000, limit=100, key="fizzbuzzcounter")
 # import streamlit as st
 # import plotly.figure_factory as ff
 # import numpy as np
