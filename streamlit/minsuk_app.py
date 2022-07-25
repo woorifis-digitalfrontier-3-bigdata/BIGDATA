@@ -96,15 +96,7 @@ folium_data = [
 ]
 
 folium_data = pd.DataFrame(folium_data,columns=['구','수'])
-folium_data
-m.choropleth(geo_data=seoul_geo,
-             data=folium_data, 
-             fill_color='YlOrRd', # 색상 변경도 가능하다
-             fill_opacity=0.5,
-             line_opacity=0.2,
-             key_on='properties.name',
-             legend_name="지역구별 대기현황 인원 수"
-            )
+
 
 # auto-refresh
 #st_data = st_folium(m, width = 1300)
