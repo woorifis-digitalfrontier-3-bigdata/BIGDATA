@@ -99,7 +99,7 @@ folium_data = pd.DataFrame(folium_data,columns=['구','수'])
 
 
 # auto-refresh
-st_data = st_folium(m, width = 1300)
+st_data = st_folium(m, width = 1300, data=folium_data)
 
 conn = msql.connect(host='52.36.29.255', database='pets', user='bigdata',  
     password='1111')
