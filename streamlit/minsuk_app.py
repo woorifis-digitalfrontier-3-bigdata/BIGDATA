@@ -138,22 +138,21 @@ folium_data = pd.DataFrame(folium_data,columns=['구','수'])
 
 
 #워드클라우드---------------
-from PIL import Image
-image = 'https://superset22.s3.us-west-2.amazonaws.com/%ED%99%94%EB%A9%B4+%EC%BA%A1%EC%B2%98+2022-07-25+191136.png'
-image2 = 'https://superset22.s3.us-west-2.amazonaws.com/%ED%99%94%EB%A9%B4+%EC%BA%A1%EC%B2%98+2022-07-25+185153.png'
+# from PIL import Image
+# image = 'https://superset22.s3.us-west-2.amazonaws.com/%ED%99%94%EB%A9%B4+%EC%BA%A1%EC%B2%98+2022-07-25+191136.png'
+# image2 = 'https://superset22.s3.us-west-2.amazonaws.com/%ED%99%94%EB%A9%B4+%EC%BA%A1%EC%B2%98+2022-07-25+185153.png'
 
-fig_col1, fig_col2  = st.columns(2)
+# fig_col1, fig_col2  = st.columns(2)
 
-with fig_col1:
-    st_data = st_folium(m, width = 1300)
-    #st.image(image, caption='우리은행 WordCloud',output_format="auto", width=250)
+# with fig_col1:
+#     st.image(image, caption='우리은행 WordCloud',output_format="auto", width=250)
 
-with fig_col2:
-    #st.image(image2, caption='영업점 WordCloud',output_format="auto", width=250)
+# with fig_col2:
+#     st.image(image2, caption='영업점 WordCloud',output_format="auto", width=250)
 
 
 # auto-refresh
-#st_data = st_folium(m, width = 1300)
+st_data = st_folium(m, width = 1300)
 
 
 #---------------------------------
