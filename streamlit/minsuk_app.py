@@ -83,27 +83,28 @@ folium.GeoJson(
     name='지역구'
 ).add_to(m)
 
-
-folium.Marker(
-  location=[37.49108397,127.05536209],
-  #popup="<a href=http://35.88.197.65:8088/superset/dashboard/p/mdZK1LrRA2w/>Place Guillaume II</a>",
-  popup='<a href="http://35.88.197.65:8088/superset/dashboard/p/mdZK1LrRA2w/" target="_blank">강남구</a>',
-  icon=folium.Icon(color='red',icon='star')
-).add_to(m)
-
-folium.Marker(
-  location=[37.51527262,126.90702140],
-  #popup="<a href=http://35.88.197.65:8088/superset/dashboard/p/mdZK1LrRA2w/>Place Guillaume II</a>",
-  popup='<a href="http://35.88.197.65:8088/superset/dashboard/p/mdZK1LrRA2w/" target="_blank">영등포구</a>',
-  icon=folium.Icon(color='red',icon='star')
-).add_to(m)
-
-folium.Marker(
-  location=[37.471077623795,126.93920205178],
-  #popup="<a href=http://35.88.197.65:8088/superset/dashboard/p/mdZK1LrRA2w/>Place Guillaume II</a>",
-  popup='<a href="http://35.88.197.65:8088/superset/dashboard/p/mdZK1LrRA2w/" target="_blank">관악구</a>',
-  icon=folium.Icon(color='red',icon='star')
-).add_to(m)
+if job_filter=='강남구':
+    folium.Marker(
+      location=[37.49108397,127.05536209],
+      #popup="<a href=http://35.88.197.65:8088/superset/dashboard/p/mdZK1LrRA2w/>Place Guillaume II</a>",
+      popup='<a href="http://35.88.197.65:8088/superset/dashboard/p/mdZK1LrRA2w/" target="_blank">강남구</a>',
+      icon=folium.Icon(color='red',icon='star')
+    ).add_to(m)
+    
+eliif job_filter=='영등포구':
+    folium.Marker(
+      location=[37.51527262,126.90702140],
+      #popup="<a href=http://35.88.197.65:8088/superset/dashboard/p/mdZK1LrRA2w/>Place Guillaume II</a>",
+      popup='<a href="http://35.88.197.65:8088/superset/dashboard/p/mdZK1LrRA2w/" target="_blank">영등포구</a>',
+      icon=folium.Icon(color='red',icon='star')
+    ).add_to(m)
+eliif job_filter=='관악구':
+    folium.Marker(
+      location=[37.471077623795,126.93920205178],
+      #popup="<a href=http://35.88.197.65:8088/superset/dashboard/p/mdZK1LrRA2w/>Place Guillaume II</a>",
+      popup='<a href="http://35.88.197.65:8088/superset/dashboard/p/mdZK1LrRA2w/" target="_blank">관악구</a>',
+      icon=folium.Icon(color='red',icon='star')
+    ).add_to(m)
 
 import pandas as pd
 
@@ -141,17 +142,18 @@ from PIL import Image
 image = 'https://superset22.s3.us-west-2.amazonaws.com/%ED%99%94%EB%A9%B4+%EC%BA%A1%EC%B2%98+2022-07-25+191136.png'
 image2 = 'https://superset22.s3.us-west-2.amazonaws.com/%ED%99%94%EB%A9%B4+%EC%BA%A1%EC%B2%98+2022-07-25+185153.png'
 
-fig_col1, fig_col2 = st.columns(2)
+fig_col1, fig_col2  = st.columns(2)
 
 with fig_col1:
-    st.image(image, caption='우리은행 WordCloud',output_format="auto", width=250)
+    st_data = st_folium(m, width = 1300)
+    #st.image(image, caption='우리은행 WordCloud',output_format="auto", width=250)
 
 with fig_col2:
     st.image(image2, caption='영업점 WordCloud',output_format="auto", width=250)
 
 
 # auto-refresh
-st_data = st_folium(m, width = 1300)
+#st_data = st_folium(m, width = 1300)
 
 
 #---------------------------------
