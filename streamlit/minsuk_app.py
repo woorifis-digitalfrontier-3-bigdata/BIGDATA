@@ -91,14 +91,14 @@ if job_filter=='강남구':
       icon=folium.Icon(color='red',icon='star')
     ).add_to(m)
     
-eliif job_filter=='영등포구':
+elif job_filter=='영등포구':
     folium.Marker(
       location=[37.51527262,126.90702140],
       #popup="<a href=http://35.88.197.65:8088/superset/dashboard/p/mdZK1LrRA2w/>Place Guillaume II</a>",
       popup='<a href="http://35.88.197.65:8088/superset/dashboard/p/mdZK1LrRA2w/" target="_blank">영등포구</a>',
       icon=folium.Icon(color='red',icon='star')
     ).add_to(m)
-eliif job_filter=='관악구':
+elif job_filter=='관악구':
     folium.Marker(
       location=[37.471077623795,126.93920205178],
       #popup="<a href=http://35.88.197.65:8088/superset/dashboard/p/mdZK1LrRA2w/>Place Guillaume II</a>",
