@@ -149,7 +149,7 @@ with fig_col1:
     #st.image(image, caption='우리은행 WordCloud',output_format="auto", width=250)
 
 with fig_col2:
-    st.image(image2, caption='영업점 WordCloud',output_format="auto", width=250)
+    #st.image(image2, caption='영업점 WordCloud',output_format="auto", width=250)
 
 
 # auto-refresh
